@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#090b17" />
+    <meta name="description" content="タップしたレーンへワープして障害物を避ける、スマホ向けミニゲーム。" />
+    <title>ケツワープ！</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="hud" aria-label="ゲーム情報">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">◎</span>
+          <div>
+            <span class="eyebrow">WARP AGENT</span>
+            <h1>ケツワープ！</h1>
+          </div>
+        </div>
+
+        <div class="score-cluster">
+          <div class="score-box">
+            <span>SCORE</span>
+            <strong id="score">0000</strong>
+          </div>
+          <div class="score-box best">
+            <span>BEST</span>
+            <strong id="best">0000</strong>
+          </div>
+          <button id="soundButton" class="icon-button" type="button" aria-label="サウンドを切り替える" aria-pressed="true">♪</button>
+        </div>
+      </header>
+
+      <section class="game-stage" aria-label="ケツワープゲーム">
+        <canvas id="gameCanvas" aria-label="3つのレーンをタップして障害物を避けます"></canvas>
+
+        <div class="warp-meter" aria-label="ワープゲージ">
+          <span>WARP</span>
+          <div class="meter-track"><div id="meterFill" class="meter-fill"></div></div>
+          <strong id="meterLabel">READY</strong>
+        </div>
+
+        <div id="message" class="floating-message" aria-live="polite"></div>
+
+        <div id="startScreen" class="overlay visible">
+          <div class="overlay-card intro-card">
+            <div class="agent-preview" aria-hidden="true">
+              <div class="portal-ring"></div>
+              <div class="mini-agent">
+                <i class="mini-head"></i>
+                <i class="mini-body"></i>
+                <i class="mini-phone"></i>
+              </div>
+            </div>
+            <p class="kicker">MISSION 01</p>
+            <h2>障害物を<br /><em>ケツワープ</em>で回避せよ</h2>
+            <p class="howto"><b>行きたいレーンをタップ</b><br />ワープ中は無敵。ギリギリ回避でボーナス！</p>
+            <button id="startButton" class="primary-button" type="button">
+              <span>作戦開始</span><small>TAP TO START</small>
+            </button>
+          </div>
+        </div>
+
+        <div id="gameOverScreen" class="overlay">
+          <div class="overlay-card result-card">
+            <p class="kicker">MISSION REPORT</p>
+            <h2>作戦終了</h2>
+            <div class="final-score">
+              <span>SCORE</span>
+              <strong id="finalScore">0000</strong>
+            </div>
+            <p id="recordMessage" class="record-message">もう一度挑戦しよう</p>
+            <button id="retryButton" class="primary-button" type="button">
+              <span>もう一度</span><small>RETRY MISSION</small>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="mission-note">
+        <span><b>TIP</b> 赤く光る場所には障害物が迫っている</span>
+        <span class="disclaimer">非公式のオリジナル・ファンゲームです</span>
+      </footer>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
