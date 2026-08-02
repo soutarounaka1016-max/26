@@ -1,0 +1,9 @@
+{
+  "name": "ketsu-warp-game",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A tap-to-warp endless avoidance game.",
+  "scripts": {
+    "check": "node --check game.js && node tests/smoke.mjs"
+  }
+}
